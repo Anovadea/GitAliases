@@ -1,0 +1,32 @@
+# Author: Aoife NicAodh <Aoife.NicAodh@gmail.com>
+# Copyright (C) 2013 Aoife NicAodh <Aoife.NicAodh@gmail.com>
+# 
+# Distributed under the GNU General Public License, version 2.0.
+
+# A function to enhance cd so that if $PWD is within a git repo, an empty
+# cd call changes $PWD the git root
+
+# First, only override cd if we have git awareness in this shell
+declare -f __gitdir > /dev/null
+if [[ $? == 0 ]] 
+then
+	function cd {
+		if [[ $# != 0 ]]; then
+			builtin cd $@
+		else
+			local _gitroot=$(__gitdir)
+			# TODO The version of __gitdir I use returns ".git"
+			# if I'm at the root, at least with the version of
+			# the bash completion script I'm using, and my
+			# version of dirname will give me "." but I don't
+			# know if this will always hold true for all 
+			# versions. This may be a possible bug.
+			if [[ -z $_gitroot || $(dirname $_gitroot) == "." ]]
+			then
+				builtin cd
+			else
+				builtin cd $(dirname $_gitroot)
+			fi
+		fi
+	}
+fi
