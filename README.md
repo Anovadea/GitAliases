@@ -11,14 +11,12 @@ When cd is called without arguments, and $PWD is a subdirectory of a git reposit
 
 ### Example
 
-``
-aoife@VBox1 ~/git-repos/SampleRepo/src/main/python/lib $ cd
-aoife@VBox1 ~/git-repos/SampleRepo $ cd
-aoife@VBox1 ~ $ cd git-repos/
-aoife@VBox1 ~/git-repos $ ls
-GitAliases  SampleRepo
-aoife@VBox1 ~/git-repos $ cd ..
-``
+    aoife@VBox1 ~/git-repos/SampleRepo/src/main/python/lib $ cd
+    aoife@VBox1 ~/git-repos/SampleRepo $ cd
+    aoife@VBox1 ~ $ cd git-repos/
+    aoife@VBox1 ~/git-repos $ ls
+    GitAliases  SampleRepo
+    aoife@VBox1 ~/git-repos $ cd ..
 
 TODO
 ====
