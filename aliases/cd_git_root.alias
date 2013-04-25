@@ -12,7 +12,7 @@ if [[ $? == 0 ]]
 then
 	function cd {
 		if [[ $# != 0 ]]; then
-			builtin cd $@
+			builtin cd "$@"
 		else
 			local _gitroot=$(__gitdir)
 			# TODO The version of __gitdir I use returns ".git"
@@ -25,7 +25,7 @@ then
 			then
 				builtin cd
 			else
-				builtin cd $(dirname $_gitroot)
+				builtin cd "$(dirname $_gitroot)"
 			fi
 		fi
 	}
