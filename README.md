@@ -30,4 +30,3 @@ TODO
 
 * Need a safety check to make sure that other aliases or functions are not overridden.
 * Preferably, we need a strategy to delegate to pre-existing overriding versions of cd to other functions before reverting to builtin behaviours.
-* The alias currently relies on the behaviour that __gitdir() returns ".git" when $PWD is the top-level directory of the repository, and dirname will then return "." in that circumstance. This behaviour needs to be verified on as many platforms as possible, or make it so we can force dirname to return the full path, so we can reliably compare to $PWD. (I remember a particularly nasty bug in other code, once upon a time, where a shell builtin for dirname returned a relative path when possible, while another's implementation returned the full path, so I'd like to get a consistent behaviour) 
